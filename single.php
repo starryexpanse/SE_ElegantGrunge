@@ -28,6 +28,7 @@
 
 					<?php 
 					printf(__('This entry was posted on %1$s at %2$s', 'elegant-grunge'), get_the_time(__('l, F jS, Y', 'elegant-grunge')), get_the_time());
+                    echo ' ';
 					if ( count(($categories=get_the_category())) > 1 || $categories[0]->cat_ID != 1 ) {
 						printf(__('and is filed under %s', 'elegant-grunge'), join(', ', array_map(create_function('$item', 'return $item->cat_name;'), get_the_category(', '))));
 					}

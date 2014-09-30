@@ -24,7 +24,31 @@ function elegant_grunge_comments_template($comment, $args, $depth) {
     		<div class="before-comment"></div>
     		<div class="comment">
     		<?php echo get_avatar( $comment, 32 ); ?>
-    		<cite><?php comment_author_link() ?></cite> <?php _e('Says:', 'elegant-grunge') ?>
+
+    		<cite <?php 
+                    // Team member comments highlighting red
+                    $comment = get_comment( get_comment_ID() );
+                    if (isset($comment->user_id) && $comment->user_id) {
+                        $thisUser = get_userdata($comment->user_id);
+                        $roles = $thisUser->roles;
+
+                        $isTeamMember = false;
+
+                        foreach ($roles as $role) {
+                            $caps = get_role($role)->capabilities;
+                            for ($i = 1; $i <= 10; $i++) {
+                                if ($caps["level_$i"]) {
+                                    $isTeamMember = true;
+                                    break;
+                                }
+                            }
+                        }
+                        if($isTeamMember) {
+                            echo ' title="This is a Starry Expanse team member." class="team_author" ';
+                        }
+                    }
+                    
+                ?> ><?php comment_author_link() ?></cite> <?php _e('Says:', 'elegant-grunge') ?>
     		<?php if ($comment->comment_approved == '0') : ?>
     		<em><?php _e('Your comment is awaiting moderation.', 'elegant-grunge') ?></em>
     		<?php endif; ?>
@@ -56,7 +80,9 @@ function elegant_grunge_comments_template($comment, $args, $depth) {
 
 
 <?php if ($comments) : ?>
-	<h4 id="comments"><?php comments_number(__('No Responses', 'elegant-grunge'), __('One Response', 'elegant-grunge'), __('% Responses', 'elegant-grunge')) ?> <?php printf(__('to &#8220;%s&#8221;', 'elegant-grunge'), get_the_title()) ?></h4>
+	<h4 id="comments"><?php comments_number(__('No Responses', 'elegant-grunge'), __('One Response', 'elegant-grunge'), __('% Responses', 'elegant-grunge')) ?> <?php printf(__('to &#8220;%s&#8221;', 'elegant-grunge'), get_the_title()) ?>.</h4>
+
+    <b>Team members' usernames are in <span class="team_author">red</span>.</b>
 
 	<?php if ( function_exists('previous_comments_link') ) : ?>
 	<div class="navigation">

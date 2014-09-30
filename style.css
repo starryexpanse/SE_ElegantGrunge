@@ -118,7 +118,7 @@ img {
 
 #header {
 	height: 216px;
-	background: url(images/header.jpg) no-repeat center;
+	background: url(images/header.png) no-repeat center;
 }
 
 .no-sidebar div #header {
@@ -277,6 +277,14 @@ h2 a {
 	font-size: 0.9em;
 	line-height: 1.3em;
 	clear: both;
+}
+
+.post .entry p {
+	text-indent: 0em;
+}
+
+.post .entry p span {
+	text-indent: 0px;
 }
 
 .post .author {
@@ -822,4 +830,48 @@ ol li, .sidebar ul ol li {
 	margin-bottom: 15px;
 	font-weight: normal;
 	font-style: normal;
+}
+
+
+/* 59volts custom below: */
+.team_author, .team_author a, .team_author * {
+    color: red;
+}
+
+#spoiler-warning {
+    background-color: #0E0E0E;
+    border-top: 5px solid #333333;
+    width: 100%;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    height:100%;
+    position: absolute;
+    top:220px;
+    z-index: 500;
+    padding: 40pt;
+    text-align: center;
+}
+
+#spoiler-warning,
+#spoiler-warning h2,
+#spoiler-warning a
+{
+    color: #acacac;
+}
+
+#spoiler-warning h1 {
+    color: #bbb;
+}
+
+
+#spoiler-warning-text {
+    width: 500pt;
+    margin: 0 auto;
+    text-align: left;
+    line-height: 1.5;
+}
+
+#spoiler-options {
+    text-align: center;
 }

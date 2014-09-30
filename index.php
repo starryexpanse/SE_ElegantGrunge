@@ -1,4 +1,25 @@
 <?php get_header(); ?>
+
+<div id="spoiler-warning" style="display:none">
+    <h2>Spoiler Warning!</h2>
+
+    <div id="spoiler-warning-text">
+        <p>
+        This website contains many spoilers for Riven: The Sequel to Myst.
+        It's an amazing game, so don't spoil yourself!
+        <p>
+        If you're curious about what this website/project even is, it's a remake
+        of the aforementioned game. You can learn more about our project by visiting
+        <a href="/what-is-starry-expanse/">What is Starry Expanse?</a>.
+        <div id="spoiler-options">
+            <button id="acceptspoiler">I've played the game. Let me in!</button>
+            <button id="rejectspoiler">I'd rather play the original first!</button>
+        </div>
+    </div>
+</div>
+
+<script type='text/javascript' src='<?php bloginfo('template_url'); ?>/spoiler.js'></script>
+
 <div id="content-container">
 
 <div id="content">
@@ -66,5 +87,6 @@
 </div>
 <div class="clear"></div>
 </div>
+
 
 <?php get_footer(); ?>

@@ -3,6 +3,7 @@
 
 <head profile="http://gmpg.org/xfn/11">
 <meta http-equiv="Content-Type" content="<?php bloginfo('html_type'); ?>; charset=<?php bloginfo('charset'); ?>" />
+<meta property="og:image" content="http://www.starryexpanse.com/common/og-thumb.jpg" />
 
 <title>
 		<?php if ( is_home() ) { ?><?php bloginfo('description'); ?> | <?php bloginfo('name'); ?><?php } ?>
@@ -62,6 +63,7 @@ if ( !defined('EG_BODY_CLASS') && get_option('page_setup') != 'right-sidebar' )
 ?>
 
 <body <?php if ( defined('EG_BODY_CLASS') ) echo 'class="'.EG_BODY_CLASS.'"'; ?>>
+
 
 <div id="page">
 
